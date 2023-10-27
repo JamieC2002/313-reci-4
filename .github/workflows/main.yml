@@ -47,9 +47,6 @@ jobs:
       - name: Install dependencies
         run: |
           pipenv install --deploy --dev
-          python -m pip install --upgrade pip
-          pip install flake8 pytest pytest-cov
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run pytest coverage
         run: |
@@ -59,6 +56,7 @@ jobs:
       - name: Build coverage file
         run: |
           pipenv run pytest --cache-clear --cov=app app/tests/ > pytest-coverage.txt
+
       - name: Comment coverage
         uses: coroo/pytest-coverage-commentator@v1.0.2
 
