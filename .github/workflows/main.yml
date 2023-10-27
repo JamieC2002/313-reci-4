@@ -22,12 +22,9 @@ jobs:
         run: |
           pipenv install --deploy --dev
 
-      - name: Move to flask folder
-        run: |
-          cd app
-
       - name: Run test suite
         run: |
+          cd app
           pipenv run pytest
 
   pytest:
@@ -51,9 +48,10 @@ jobs:
         run: |
           pipenv install --deploy --dev
 
-      - name: Move to flask folder
-      run: |
-        cd app
+      - name: Run pytest coverage
+        run: |
+          cd app
+          pipenv run pytest --cov
 
   linter_name:
     name: format
@@ -64,9 +62,10 @@ jobs:
         uses: rickstaa/action-black@v1
         id: action_black
         with:
-          black_args: "."
+          black_args: ". --check"
+
       - name: Annotate diff changes using reviewdog
-        if: steps.action_black.outputs.is_formatted == 'true'
+        if: steps.action_black.outputs.is_formatted == 'false'
         uses: reviewdog/action-suggester@v1
         with:
           tool_name: blackfmt
