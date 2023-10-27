@@ -1,0 +1,37 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.9.5, pytest-7.4.3, pluggy-1.0.0
+rootdir: /Users/jamie_chen/Desktop/17-313/Recitations/313-reci-4
+plugins: cov-4.1.0, xdist-3.3.1
+collected 3 items
+
+app/tests/test_fib.py ..                                                 [ 66%]
+app/tests/test_routes.py .                                               [100%]
+
+=============================== warnings summary ===============================
+app/tests/test_routes.py::test_base_route
+  /Users/jamie_chen/Desktop/17-313/Recitations/CMU-313-fall23-sw-archaeology-recitation/313-reci/lib/python3.9/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator DecisionTreeClassifier from version 1.1.3 when using version 1.1.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+    warnings.warn(
+
+app/tests/test_routes.py::test_base_route
+  /Users/jamie_chen/Desktop/17-313/Recitations/CMU-313-fall23-sw-archaeology-recitation/313-reci/lib/python3.9/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator RandomForestClassifier from version 1.1.3 when using version 1.1.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+---------- coverage: platform darwin, python 3.9.5-final-0 -----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+app/__init__.py                3      0   100%
+app/app.py                     6      6     0%
+app/fib.py                     8      2    75%
+app/handlers/__init__.py       0      0   100%
+app/handlers/routes.py        23      8    65%
+app/tests/__init__.py          0      0   100%
+app/tests/test_fib.py          5      0   100%
+app/tests/test_routes.py      10      0   100%
+----------------------------------------------
+TOTAL                         55     16    71%
+
+======================== 3 passed, 2 warnings in 1.97s =========================
