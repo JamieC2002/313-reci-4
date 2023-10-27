@@ -27,13 +27,6 @@ jobs:
           cd app
           pipenv run pytest
 
-      - name: Build coverage file
-        run: |
-          pytest --cache-clear --cov=app app/tests/ > pytest-coverage.txt
-
-      - name: Comment coverage
-        uses: coroo/pytest-coverage-commentator@v1.0.2
-
   pytest:
     name: pytest cov
     runs-on: ubuntu-latest
@@ -59,6 +52,13 @@ jobs:
         run: |
           cd app
           pipenv run pytest --cov=.
+
+      - name: Build coverage file
+        run: |
+          pytest --cache-clear --cov=app app/tests/ > pytest-coverage.txt
+
+      - name: Comment coverage
+        uses: coroo/pytest-coverage-commentator@v1.0.2
 
 
   linter_name:
